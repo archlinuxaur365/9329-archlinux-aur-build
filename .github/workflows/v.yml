@@ -1,5 +1,4 @@
 name: Build v
-
 on:
   push:
     branches:
@@ -7,7 +6,6 @@ on:
   schedule:
     - cron: '0 14 * * *'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,33 +14,22 @@ jobs:
       volumes:
         - /home/runner/work/alterdir/alterdir:/tmp/alterdir
       options: "--privileged"
-
     steps:
-      - name: Install SSH Key
+      - name: 1. Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.MY_SF_SSH }} 
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       - uses: actions/checkout@v2
-      - name: build
+      - name: 2. build
         run: ./6.ci.sh
-
-  release:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-
-      - uses: actions/checkout@v2
-
-      - name: Get build_no
+      - name: 3. Get build_no
         id: build_no
         run: echo "::set-output name=build_no::$GITHUB_REF_NAME-$GITHUB_RUN_NUMBER"
-
-      - name: Upload to sf
+      - name: 4. get sf url
         id: uploadiso
-        run: echo "::set-output name=url::Please Download pkg From SourceForge https://sourceforge.net/projects/archlinux365/files/9280-endeavouros-pkgbuilds/x86_64/"
-
-      - name: Create release
+        run: echo "::set-output name=url::Please Download pkg From SourceForge https://sourceforge.net/projects/archlinux365/files/9329-archlinux-aur-build/x86_64/"
+      - name: 5. Create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
