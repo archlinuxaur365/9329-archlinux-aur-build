@@ -24,11 +24,11 @@ cd ~/9329/
 ls -al 
 
 buildaur(){
-    sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "${1}"
-    cd "${1}"
+    sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "tmp_${1}"
+    cd "tmp_${1}"
     sudo -u runner makepkg --ignorearch --clean --cleanbuild --force --skippgpcheck --noconfirm --syncdeps
     cd ..
-    rm -rf "${1}"
+    rm -rf "tmp_${1}"
 }
 
 cd hourly
