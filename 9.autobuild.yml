@@ -27,20 +27,13 @@ jobs:
       - name: build
         run: ./6.ci.sh
 
-  release:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-
-      - uses: actions/checkout@v2
-
       - name: Get build_no
         id: build_no
         run: echo "::set-output name=build_no::$GITHUB_REF_NAME-$GITHUB_RUN_NUMBER"
 
       - name: Upload to sf
         id: uploadiso
-        run: echo "::set-output name=url::Please Download pkg From SourceForge https://sourceforge.net/projects/archlinux365/files/9280-endeavouros-pkgbuilds/x86_64/"
+        run: echo "::set-output name=url::Please Download pkg From SourceForge https://sourceforge.net/projects/archlinux365/files/9329-archlinux-aur-build/x86_64/"
 
       - name: Create release
         uses: softprops/action-gh-release@v1
