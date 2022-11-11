@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -x
-set -Eeu
+# set -Eeu
 
 
 export CMD_PATH=$(cd `dirname $0`; pwd)
