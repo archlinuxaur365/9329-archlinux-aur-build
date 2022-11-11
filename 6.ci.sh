@@ -32,7 +32,7 @@ ls -al
 buildaur(){
     sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "tmp_${1}"
     cd "tmp_${1}"
-    sudo -u runner makepkg --ignorearch --clean --cleanbuild --force --skippgpcheck --noconfirm --syncdeps
+    sudo -u runner makepkg -L -s --nosign --noconfirm -f
     rsync -avzP *.zst gnuhub@frs.sourceforge.net:/home/frs/project/${GITHUB_REPOSITORY}/x86_64/
     cd ..
     rm -rf "tmp_${1}"
