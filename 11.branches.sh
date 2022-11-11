@@ -11,6 +11,7 @@ cd $CMD_PATH
 
 cd aur-all 
 export n=1
+git checkout dev
 for f in `ls`
 do 
 echo $n
