@@ -17,6 +17,7 @@ do
 echo $n
     echo $f 
     cd ..
+    git checkout -b $f 
     git checkout $f 
     git merge dev 
     p2
