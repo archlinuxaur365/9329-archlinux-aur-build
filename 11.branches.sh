@@ -23,11 +23,11 @@ echo $n
     git checkout -b $f 
     git checkout $f 
     git merge dev 
-
+    git pull origin $f
     p2
     git pull archlinuxaur366 $f
     git push archlinuxaur366 $f
-    
+
     git pull archlinuxaur367 $f
     git push archlinuxaur367 $f
 
