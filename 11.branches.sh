@@ -25,8 +25,13 @@ echo $n
     git merge dev 
 
     p2
+    git pull archlinuxaur366 $f
     git push archlinuxaur366 $f
+    
+    git pull archlinuxaur367 $f
     git push archlinuxaur367 $f
+
+    git pull archlinuxaur368 $f
     git push archlinuxaur368 $f
     cd aur-all
 done
