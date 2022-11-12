@@ -19,7 +19,7 @@ do
 echo $n
     echo $f 
     cd ..
-    gh workflow enable $f.yml
-    gh workflow run $f.yml
+    gh workflow enable $f.yml -R "archlinuxaur368/9329-archlinux-aur-build"
+    gh workflow run $f.yml -R "archlinuxaur368/9329-archlinux-aur-build"
     cd 368
 done
