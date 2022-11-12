@@ -19,8 +19,6 @@ ssh-keyscan "frs.sourceforge.net" >> /root/.ssh/known_hosts
 cat /root/.ssh/known_hosts
 
 rsync -avP ./ ~/9329/
-mkdir -p ${GITHUB_REPOSITORY}
-rsync -avzP ./${GITHUB_REPOSITORY}/  gnuhub@frs.sourceforge.net:/home/frs/project/${GITHUB_REPOSITORY}/
 
 
 
@@ -33,7 +31,7 @@ buildaur(){
     sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "tmp_${1}"
     cd "tmp_${1}"
     sudo -u runner makepkg -L -s --nosign --noconfirm -f
-    rsync -avzP *.zst gnuhub@frs.sourceforge.net:/home/frs/project/${GITHUB_REPOSITORY}/x86_64/
+    rsync -avzP *.zst gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64/
     cd ..
     rm -rf "tmp_${1}"
 }
