@@ -30,8 +30,9 @@ ls -al
 buildaur(){
     sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "tmp_${1}"
     cd "tmp_${1}"
-    sudo -u runner makepkg -L -s --nosign --noconfirm -f
+    sudo -u runner makepkg -s --nosign --noconfirm -f 2>&1 > ${f}.$GITHUB_RUN_NUMBER.log.txt
     rsync -avzP *.zst gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64/
+    rsync -avzP *.log.txt gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64_log/
     cd ..
     rm -rf "tmp_${1}"
 }
