@@ -17,6 +17,6 @@ do
 echo $n
     echo $f 
     cd ..
-    gh workflow disable $f.yml
+    gh workflow disable $f.yml -R "$1"
     cd aur-all
 done
