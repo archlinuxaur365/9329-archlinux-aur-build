@@ -9,7 +9,7 @@ export PROJECT_NAME="${CMD_PATH##*/}"
 
 cd $CMD_PATH
 
-./12.workflow.stop "archlinuxaur368/9329-archlinux-aur-build"
+./12.workflow.stop.sh "archlinuxaur368/9329-archlinux-aur-build"
 cd 368
 export n=1
 git checkout dev
@@ -20,5 +20,5 @@ echo $n
     cd ..
     gh workflow enable $f.yml
     gh workflow run $f.yml
-    cd aur-all
+    cd 368
 done
