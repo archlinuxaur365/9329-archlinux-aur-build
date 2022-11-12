@@ -8,8 +8,9 @@ export CMD_PATH=$(cd `dirname $0`; pwd)
 export PROJECT_NAME="${CMD_PATH##*/}"
 
 cd $CMD_PATH
-
-./12.workflow.stop.sh "archlinuxaur368/9329-archlinux-aur-build"
+if [ ! -z $1 ];then
+    ./12.workflow.stop.sh "archlinuxaur368/9329-archlinux-aur-build"
+fi
 cd 368
 export n=1
 git checkout dev
