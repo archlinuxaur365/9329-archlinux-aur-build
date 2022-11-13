@@ -24,7 +24,7 @@ jobs:
         with:
           ref: weekly
       - name: 2. build
-        run: ./6.ci.sh
+        run: ./6.ci.sh weekly
       - name: 3. Get build_no
         id: build_no
         run: echo "::set-output name=build_no::$GITHUB_REF_NAME-$GITHUB_RUN_NUMBER"
