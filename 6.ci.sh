@@ -18,9 +18,14 @@ ssh-keygen -f "/root/.ssh/known_hosts" -R "frs.sourceforge.net"
 ssh-keyscan "frs.sourceforge.net" >> /root/.ssh/known_hosts
 cat /root/.ssh/known_hosts
 
+<<<<<<< HEAD
 rsync -avP ./ ~/9329/
 rsync -avzP README.md gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/
 rsync -avzP README.md gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64/
+=======
+rsync -avP ./ ~/9329/ > /dev/null
+rsync -avzP README.md gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64/  > /dev/null
+>>>>>>> dev
 
 
 

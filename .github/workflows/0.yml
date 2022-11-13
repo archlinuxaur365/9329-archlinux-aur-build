@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.MY_SF_SSH }} 
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       - uses: actions/checkout@v2
-          with:
-            ref: 0
+        with:
+          ref: 0
       - name: 2. build
         run: ./6.ci.sh
       - name: 3. Get build_no
