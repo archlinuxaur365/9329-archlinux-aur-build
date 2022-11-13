@@ -38,7 +38,7 @@ buildaur(){
     rm -rf "tmp_${1}"
 }
 
-cd aur-all/$GITHUB_REF_NAME
+cd aur-all/$1
 
 for pkg in `ls`
 do
