@@ -35,3 +35,7 @@ echo $n
     git push archlinuxaur368 $f
     cd aur-all
 done
+git push origin :H
+git push archlinuxaur367 :H
+git push archlinuxaur367 :H
+git push archlinuxaur367 :H
