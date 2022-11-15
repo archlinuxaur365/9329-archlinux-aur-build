@@ -29,6 +29,7 @@ cd ~/9329/
 ls -al 
 
 buildaur(){
+    rm -rf /var/cache/pacman/pkg/
     sudo -u runner git clone --depth=1 -b $1 "https://github.com/archlinux/aur.git" "tmp_${1}"
     cd "tmp_${1}"
     sudo -u runner makepkg --log --nocolor -s --nosign --noconfirm -f > ${1}.$GITHUB_RUN_NUMBER.log.txt
@@ -36,6 +37,7 @@ buildaur(){
     rsync -avzP *.log.txt gnuhub@frs.sourceforge.net:/home/frs/project/archlinux365/9329-archlinux-aur-build/x86_64_log/
     cd ..
     rm -rf "tmp_${1}"
+    rm -rf /var/cache/pacman/pkg/
 }
 
 cd aur-all/$1
