@@ -15,6 +15,12 @@ git remote add archlinuxaur368 git@github.com:archlinuxaur368/9329-archlinux-aur
 cd aur-all 
 export n=1
 git checkout dev
+
+git branch z -D 
+git push origin :z
+git push archlinuxaur367 :z
+git push archlinuxaur367 :z
+git push archlinuxaur367 :z
 for f in `ls`
 do 
 echo $n
